@@ -1,82 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRAFT SYNC SA | Strategic Launch</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CRAFT SYNC SA | Handcrafted Lifestyle Collection</title>
+
     <style>
         :root {
             --obsidian: #050505;
-            --gold: #c5a028; /* Surgical Gold */
+            --gold: #c5a028;
             --slate: #121212;
             --white: #ffffff;
-            --accent: #1a1a1a;
+            --soft: #b8b8b8;
+            --line: rgba(197, 160, 40, 0.12);
+            --panel: #171717;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--obsidian);
+            font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--obsidian);
             color: var(--white);
             line-height: 1.6;
         }
 
-        /* --- SURGICAL HEADER --- */
         header {
-            padding: 6rem 2rem;
-            border-bottom: 1px solid rgba(197, 160, 40, 0.1);
+            padding: 5rem 2rem;
             text-align: center;
+            border-bottom: 1px solid var(--line);
+            background: linear-gradient(to bottom, #080808, #050505);
         }
 
         .brand-logo {
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            letter-spacing: 12px;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            letter-spacing: 10px;
             font-weight: 900;
             color: var(--gold);
             text-transform: uppercase;
         }
 
         .launch-tag {
-            font-size: 0.8rem;
-            letter-spacing: 5px;
-            color: #888;
-            margin-top: 15px;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            color: #8a8a8a;
             text-transform: uppercase;
         }
 
-        /* --- CORE MISSION --- */
-        .mission {
-            padding: 5rem 15%;
+        .story-layer {
+            padding: 5rem 12%;
             text-align: center;
             background: linear-gradient(to bottom, var(--obsidian), var(--slate));
+            border-bottom: 1px solid var(--line);
         }
 
-        .mission h1 {
-            font-size: 0.9rem;
+        .story-layer h1 {
             color: var(--gold);
             letter-spacing: 4px;
             text-transform: uppercase;
+            font-size: 1rem;
             margin-bottom: 2rem;
         }
 
-        .mission p {
-            font-size: 1.25rem;
-            color: #ccc;
-            max-width: 800px;
+        .story-layer p {
+            max-width: 850px;
             margin: 0 auto;
+            font-size: 1.15rem;
+            color: var(--soft);
             font-weight: 300;
         }
 
-        /* --- PRODUCT SHOWCASE --- */
         .showcase {
-            padding: 6rem 10%;
+            padding: 5rem 10%;
         }
 
         .item {
             display: flex;
+            gap: 4rem;
             align-items: center;
-            gap: 5rem;
-            margin-bottom: 8rem;
+            margin-bottom: 6rem;
         }
 
         .item:nth-child(even) {
@@ -85,11 +91,20 @@
 
         .preview-box {
             flex: 1.2;
-            height: 500px;
-            background: var(--accent);
-            border: 1px solid rgba(197, 160, 40, 0.1);
-            position: relative;
+            min-height: 420px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 18px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .details {
@@ -97,84 +112,77 @@
         }
 
         .details h2 {
-            font-size: 2.2rem;
             color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 1rem;
             letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
         }
 
         .details p {
-            color: #999;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            color: #a0a0a0;
+            font-size: 1.05rem;
+            margin-bottom: 1.8rem;
         }
 
         .specs-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
 
         .spec-item {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
             color: var(--gold);
+            font-size: 0.78rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* --- ROADMAP SECTION --- */
-        .roadmap {
-            padding: 6rem 10%;
-            background-color: var(--slate);
+        .future-layer {
+            padding: 5rem 10%;
+            background: var(--slate);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            text-align: center;
         }
 
-        .roadmap-title {
+        .future-layer h3 {
             color: var(--gold);
-            letter-spacing: 5px;
-            margin-bottom: 3rem;
-            text-align: center;
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
         }
 
-        .timeline {
-            display: flex;
-            justify-content: space-between;
-            max-width: 1000px;
+        .future-layer p {
+            max-width: 900px;
             margin: 0 auto;
-            text-align: left;
+            color: #999;
+            font-size: 1rem;
         }
 
-        .phase {
-            flex: 1;
-            padding: 0 1rem;
-        }
-
-        .phase h4 {
-            color: var(--white);
-            margin-bottom: 0.5rem;
-        }
-
-        .phase p {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        /* --- FOOTER --- */
         footer {
-            padding: 4rem 2rem;
-            border-top: 1px solid #1a1a1a;
-            color: #444;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
+            padding: 3rem 2rem;
             text-align: center;
+            color: #666;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         @media (max-width: 768px) {
-            .item, .item:nth-child(even) { flex-direction: column; text-align: center; gap: 2rem; }
-            .timeline { flex-direction: column; gap: 2rem; }
+            .item,
+            .item:nth-child(even) {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .showcase,
+            .story-layer,
+            .future-layer {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
         }
     </style>
 </head>
@@ -182,85 +190,92 @@
 
     <header>
         <div class="brand-logo">CRAFT SYNC SA</div>
-        <div class="launch-tag">Lifestyle Integration | Pretoria HQ</div>
+        <div class="launch-tag">Handcrafted Lifestyle | Pretoria, South Africa</div>
     </header>
 
-    <section class="mission">
-        <h1>The CEO’s Vision</h1>
-        <p>Craft Sync SA is not just a brand; it is a modular ecosystem. We merge resin-weighted density with surgical-grade precision to create tools that feel like extensions of the user.</p>
+    <section class="story-layer">
+        <h1>Our Story</h1>
+        <p>
+            Craft Sync SA is currently focused on creating premium handcrafted resin lifestyle pieces,
+            from aura grinders and vessels to symbolic runes and custom accessories.
+            Every item is made with intention, style, and identity. As we grow, future works and
+            new creative product lines will be introduced over time.
+        </p>
     </section>
 
     <section class="showcase">
-        <div class="product-focus">
-            
-            <div class="item">
-                <div class="preview-box">
-                    </div>
-                <div class="details">
-                    <h2>Celestial Vessel</h2>
-                    <p>Engineered for light-sensitive storage. The obsidian-resin foundation provides a high-weight density, ensuring the vessel remains grounded while the gold marbling reflects the high-tech interior.</p>
-                    <div class="specs-grid">
-                        <div class="spec-item">// FINISH: METALLIC OBSIDIAN</div>
-                        <div class="spec-item">// WEIGHT: REINFORCED RESIN</div>
-                        <div class="spec-item">// UTILITY: INTENT HOUSING</div>
-                        <div class="spec-item">// SYNC: MODULE COMPATIBLE</div>
-                    </div>
+
+        <div class="item">
+            <div class="preview-box">
+                <img src="vessel_black_gold.jpg" alt="Black and Gold Vessel">
+            </div>
+            <div class="details">
+                <h2>Black Gold Vessel</h2>
+                <p>
+                    A handcrafted resin vessel finished in obsidian black with rich gold marbling.
+                    Designed as a premium storage and lifestyle piece with a bold, weighted presence.
+                </p>
+                <div class="specs-grid">
+                    <div class="spec-item">Finish: Obsidian / Gold</div>
+                    <div class="spec-item">Material: Reinforced Resin</div>
+                    <div class="spec-item">Style: Premium Lifestyle</div>
+                    <div class="spec-item">Batch: Handmade</div>
                 </div>
             </div>
-
-            <div class="item">
-                <div class="preview-box">
-                    </div>
-                <div class="details">
-                    <h2>Precision Module</h2>
-                    <p>The core of the Craft Sync lineup. Featuring an optical-clarity housing that showcases the dual-tone 'Aura' teeth. Designed for friction-less operation and surgical-grade output.</p>
-                    <div class="specs-grid">
-                        <div class="spec-item">// TEETH: BLACK/GOLD AURA</div>
-                        <div class="spec-item">// BODY: CRYSTAL CLEAR</div>
-                        <div class="spec-item">// GRADE: CERAMIC HYBRID</div>
-                        <div class="spec-item">// FLOW: HIGH-TORQUE</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="preview-box">
-                    </div>
-                <div class="details">
-                    <h2>Weighted Aura Runes</h2>
-                    <p>Designed for the Hex-Sync module system. These aren't just tokens; they are precision-balanced instruments with a silver core inlay to ensure every draw is tactile and deliberate.</p>
-                    <div class="specs-grid">
-                        <div class="spec-item">// CORE: SILVER INLAY</div>
-                        <div class="spec-item">// BALANCED: RITUAL GRADE</div>
-                        <div class="spec-item">// COLOR: CELESTIAL INDIGO</div>
-                        <div class="spec-item">// SYSTEM: HEX-SYNC READY</div>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <div class="item">
+            <div class="preview-box">
+                <img src="grinder_aura.jpg" alt="Aura Grinder">
+            </div>
+            <div class="details">
+                <h2>Aura Grinder</h2>
+                <p>
+                    A custom-crafted grinder built for smooth daily use with a clean transparent body
+                    and signature dual-tone detailing that reflects the Craft Sync identity.
+                </p>
+                <div class="specs-grid">
+                    <div class="spec-item">Body: Crystal Clear</div>
+                    <div class="spec-item">Tone: Black / Gold</div>
+                    <div class="spec-item">Flow: Smooth Grind</div>
+                    <div class="spec-item">Edition: Aura Series</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="preview-box">
+                <div style="padding:2rem; color:#777;">Weighted Aura Runes</div>
+            </div>
+            <div class="details">
+                <h2>Weighted Aura Runes</h2>
+                <p>
+                    Custom resin runes and symbolic pieces crafted with balanced weight,
+                    rich finishes, and collectible identity. Designed for those who want
+                    something personal and meaningful.
+                </p>
+                <div class="specs-grid">
+                    <div class="spec-item">Core: Weighted Resin</div>
+                    <div class="spec-item">Style: Symbolic</div>
+                    <div class="spec-item">Color: Celestial Indigo</div>
+                    <div class="spec-item">Series: Rune Collection</div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
-    <section class="roadmap">
-        <h3 class="roadmap-title">STRATEGIC TIMELINE</h3>
-        <div class="timeline">
-            <div class="phase">
-                <h4>PHASE I</h4>
-                <p>Hero Sample Production. Finalizing resin-weight ratios for the Celestial line.</p>
-            </div>
-            <div class="phase">
-                <h4>PHASE II</h4>
-                <p>3D Modular Integration. Printing housing shells for high-tech lifestyle components.</p>
-            </div>
-            <div class="phase">
-                <h4>PHASE III</h4>
-                <p>Full Market Launch. April 20. National distribution across South Africa.</p>
-            </div>
-        </div>
+    <section class="future-layer">
+        <h3>Future Works</h3>
+        <p>
+            Our current collection focuses on handcrafted resin products and lifestyle accessories.
+            Future works including expanded custom collections, modular concepts, and new creative
+            product lines will be implemented as Craft Sync SA continues to grow.
+        </p>
     </section>
 
     <footer>
-        &copy; 2026 CRAFT SYNC SA | MANAGED BY THE CEO | AUTHENTIC QUALITY
+        © 2026 CRAFT SYNC SA | HANDCRAFTED IN SOUTH AFRICA
     </footer>
 
 </body>
