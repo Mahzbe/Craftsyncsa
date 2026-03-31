@@ -3,77 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRAFT SYNC SA | The Hero Samples</title>
+    <title>CRAFT SYNC SA | Strategic Launch</title>
     <style>
         :root {
             --obsidian: #050505;
             --gold: #c5a028; /* Surgical Gold */
             --slate: #121212;
             --white: #ffffff;
+            --accent: #1a1a1a;
         }
 
         body {
             margin: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--obsidian);
             color: var(--white);
-            text-align: center;
+            line-height: 1.6;
         }
 
         /* --- SURGICAL HEADER --- */
         header {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             border-bottom: 1px solid rgba(197, 160, 40, 0.1);
+            text-align: center;
         }
 
         .brand-logo {
-            font-size: 2.2rem;
-            letter-spacing: 8px;
-            font-weight: 800;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            letter-spacing: 12px;
+            font-weight: 900;
             color: var(--gold);
             text-transform: uppercase;
         }
 
         .launch-tag {
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            color: #888;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        /* --- CORE MISSION --- */
+        .mission {
+            padding: 5rem 15%;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--obsidian), var(--slate));
+        }
+
+        .mission h1 {
             font-size: 0.9rem;
+            color: var(--gold);
             letter-spacing: 4px;
-            color: #666;
-            margin-top: 10px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .mission p {
+            font-size: 1.25rem;
+            color: #ccc;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
         }
 
         /* --- PRODUCT SHOWCASE --- */
         .showcase {
-            padding: 4rem 10%;
-        }
-
-        .product-focus {
-            display: flex;
-            flex-direction: column;
-            gap: 6rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 6rem 10%;
         }
 
         .item {
             display: flex;
             align-items: center;
-            gap: 4rem;
-            text-align: left;
+            gap: 5rem;
+            margin-bottom: 8rem;
         }
 
         .item:nth-child(even) {
             flex-direction: row-reverse;
-            text-align: right;
         }
 
         .preview-box {
-            flex: 1;
-            height: 450px;
-            background: var(--slate);
-            border: 1px solid rgba(255,255,255,0.05);
-            /* Placeholder for our Hero Shots */
-            background-size: cover;
-            background-position: center;
+            flex: 1.2;
+            height: 500px;
+            background: var(--accent);
+            border: 1px solid rgba(197, 160, 40, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
         .details {
@@ -81,32 +97,84 @@
         }
 
         .details h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--gold);
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
         .details p {
-            color: #aaa;
+            color: #999;
             font-size: 1.1rem;
-            line-height: 1.8;
+            margin-bottom: 2rem;
         }
 
-        .specs {
-            margin-top: 1.5rem;
-            font-family: monospace;
-            font-size: 0.8rem;
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            border-top: 1px solid #222;
+            padding-top: 1.5rem;
+        }
+
+        .spec-item {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
             color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        /* --- ROADMAP SECTION --- */
+        .roadmap {
+            padding: 6rem 10%;
+            background-color: var(--slate);
+        }
+
+        .roadmap-title {
+            color: var(--gold);
+            letter-spacing: 5px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .phase {
+            flex: 1;
+            padding: 0 1rem;
+        }
+
+        .phase h4 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .phase p {
+            font-size: 0.85rem;
+            color: #666;
         }
 
         /* --- FOOTER --- */
         footer {
-            padding: 5rem 2rem;
-            border-top: 1px solid rgba(197, 160, 40, 0.1);
+            padding: 4rem 2rem;
+            border-top: 1px solid #1a1a1a;
             color: #444;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .item, .item:nth-child(even) { flex-direction: column; text-align: center; gap: 2rem; }
+            .timeline { flex-direction: column; gap: 2rem; }
         }
     </style>
 </head>
@@ -114,44 +182,85 @@
 
     <header>
         <div class="brand-logo">CRAFT SYNC SA</div>
-        <div class="launch-tag">SURGICAL SAMPLES | APRIL 20 LAUNCH</div>
+        <div class="launch-tag">Lifestyle Integration | Pretoria HQ</div>
     </header>
+
+    <section class="mission">
+        <h1>The CEO’s Vision</h1>
+        <p>Craft Sync SA is not just a brand; it is a modular ecosystem. We merge resin-weighted density with surgical-grade precision to create tools that feel like extensions of the user.</p>
+    </section>
 
     <section class="showcase">
         <div class="product-focus">
             
             <div class="item">
-                <div class="preview-box" style="background-image: url('vessel_black_gold.jpg');"></div>
+                <div class="preview-box">
+                    </div>
                 <div class="details">
                     <h2>Celestial Vessel</h2>
-                    <p>Solid obsidian-resin foundation with deep metallic gold marbling. High-weight density for secure, light-sealed storage.</p>
-                    <div class="specs">// FINISH: METALLIC OBSIDIAN <br> // USAGE: INTENT HOUSING</div>
+                    <p>Engineered for light-sensitive storage. The obsidian-resin foundation provides a high-weight density, ensuring the vessel remains grounded while the gold marbling reflects the high-tech interior.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">// FINISH: METALLIC OBSIDIAN</div>
+                        <div class="spec-item">// WEIGHT: REINFORCED RESIN</div>
+                        <div class="spec-item">// UTILITY: INTENT HOUSING</div>
+                        <div class="spec-item">// SYNC: MODULE COMPATIBLE</div>
+                    </div>
                 </div>
             </div>
 
             <div class="item">
-                <div class="preview-box" style="background-image: url('grinder_aura.jpg');"></div>
+                <div class="preview-box">
+                    </div>
                 <div class="details">
                     <h2>Precision Module</h2>
-                    <p>Optical-clarity housing featuring dual-tone 'Aura' teeth. Obsidian-black base with gold-tipped ceramic-grade grinders.</p>
-                    <div class="specs">// TEETH: BLACK/GOLD AURA <br> // BODY: CRYSTAL RESIN</div>
+                    <p>The core of the Craft Sync lineup. Featuring an optical-clarity housing that showcases the dual-tone 'Aura' teeth. Designed for friction-less operation and surgical-grade output.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">// TEETH: BLACK/GOLD AURA</div>
+                        <div class="spec-item">// BODY: CRYSTAL CLEAR</div>
+                        <div class="spec-item">// GRADE: CERAMIC HYBRID</div>
+                        <div class="spec-item">// FLOW: HIGH-TORQUE</div>
+                    </div>
                 </div>
             </div>
 
             <div class="item">
-                <div class="preview-box" style="background-image: url('runes_weighted.jpg');"></div>
+                <div class="preview-box">
+                    </div>
                 <div class="details">
                     <h2>Weighted Aura Runes</h2>
-                    <p>Deep indigo and celestial silver swirl. Precision balanced for ritual draw. Designed for the Hex-Sync module system.</p>
-                    <div class="specs">// MATERIAL: WEIGHTED RESIN <br> // CORE: SILVER INLAY</div>
+                    <p>Designed for the Hex-Sync module system. These aren't just tokens; they are precision-balanced instruments with a silver core inlay to ensure every draw is tactile and deliberate.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">// CORE: SILVER INLAY</div>
+                        <div class="spec-item">// BALANCED: RITUAL GRADE</div>
+                        <div class="spec-item">// COLOR: CELESTIAL INDIGO</div>
+                        <div class="spec-item">// SYSTEM: HEX-SYNC READY</div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <section class="roadmap">
+        <h3 class="roadmap-title">STRATEGIC TIMELINE</h3>
+        <div class="timeline">
+            <div class="phase">
+                <h4>PHASE I</h4>
+                <p>Hero Sample Production. Finalizing resin-weight ratios for the Celestial line.</p>
+            </div>
+            <div class="phase">
+                <h4>PHASE II</h4>
+                <p>3D Modular Integration. Printing housing shells for high-tech lifestyle components.</p>
+            </div>
+            <div class="phase">
+                <h4>PHASE III</h4>
+                <p>Full Market Launch. April 20. National distribution across South Africa.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        CRAFT SYNC SA - MANAGED BY THE CEO | 2026
+        &copy; 2026 CRAFT SYNC SA | MANAGED BY THE CEO | AUTHENTIC QUALITY
     </footer>
 
 </body>
