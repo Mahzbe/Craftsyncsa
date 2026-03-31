@@ -1,282 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CRAFT SYNC SA | Handcrafted Lifestyle Collection</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Craft Sync SA | Launching 20 April</title>
 
-    <style>
-        :root {
-            --obsidian: #050505;
-            --gold: #c5a028;
-            --slate: #121212;
-            --white: #ffffff;
-            --soft: #b8b8b8;
-            --line: rgba(197, 160, 40, 0.12);
-            --panel: #171717;
-        }
+<style>
+:root{--bg:#050505;--panel:#121212;--gold:#c5a028;--text:#fff;--muted:#aaa;--line:rgba(197,160,40,.18)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
 
-        * {
-            box-sizing: border-box;
-        }
+nav{position:sticky;top:0;background:rgba(5,5,5,.95);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:1rem 6%;border-bottom:1px solid var(--line)}
+nav a{color:var(--muted);text-decoration:none;margin-left:1.2rem;font-size:0.9rem}
+nav a:hover{color:var(--gold)}
 
-        body {
-            margin: 0;
-            font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--obsidian);
-            color: var(--white);
-            line-height: 1.6;
-        }
+.hero{padding:6rem 6%;text-align:center;background:linear-gradient(to bottom,#080808,#111)}
+.hero h1{font-size:clamp(2rem,6vw,4rem);margin:0;color:var(--gold);letter-spacing:4px}
+.hero p{max-width:760px;margin:1rem auto;color:var(--muted);font-size:1.1rem}
 
-        header {
-            padding: 5rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid var(--line);
-            background: linear-gradient(to bottom, #080808, #050505);
-        }
+.micro{font-size:0.8rem;color:#777;margin-top:1rem}
 
-        .brand-logo {
-            font-size: clamp(1.8rem, 5vw, 3rem);
-            letter-spacing: 10px;
-            font-weight: 900;
-            color: var(--gold);
-            text-transform: uppercase;
-        }
+.counter{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:700px;margin:2rem auto}
+.box{background:var(--panel);padding:1.5rem;border:1px solid var(--line);border-radius:20px}
+.box strong{display:block;font-size:2rem;color:var(--gold)}
 
-        .launch-tag {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            letter-spacing: 4px;
-            color: #8a8a8a;
-            text-transform: uppercase;
-        }
+.section{padding:5rem 6%}
 
-        .story-layer {
-            padding: 5rem 12%;
-            text-align: center;
-            background: linear-gradient(to bottom, var(--obsidian), var(--slate));
-            border-bottom: 1px solid var(--line);
-        }
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.card{background:var(--panel);padding:2rem;border-radius:22px;border:1px solid var(--line);transition:0.3s}
+.card:hover{transform:translateY(-5px);border-color:var(--gold)}
 
-        .story-layer h1 {
-            color: var(--gold);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-size: 1rem;
-            margin-bottom: 2rem;
-        }
+.signup{max-width:700px;margin:0 auto;text-align:center}
+input{width:100%;padding:1rem;border-radius:14px;border:1px solid #333;background:#0d0d0d;color:#fff;margin:1rem 0}
+button{padding:1rem 1.5rem;border:none;border-radius:14px;background:var(--gold);font-weight:700;cursor:pointer}
 
-        .story-layer p {
-            max-width: 850px;
-            margin: 0 auto;
-            font-size: 1.15rem;
-            color: var(--soft);
-            font-weight: 300;
-        }
+footer{padding:2rem;text-align:center;color:#777;border-top:1px solid var(--line);font-size:0.8rem}
 
-        .showcase {
-            padding: 5rem 10%;
-        }
-
-        .item {
-            display: flex;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 6rem;
-        }
-
-        .item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .preview-box {
-            flex: 1.2;
-            min-height: 420px;
-            background: var(--panel);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .preview-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .details {
-            flex: 1;
-        }
-
-        .details h2 {
-            color: var(--gold);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .details p {
-            color: #a0a0a0;
-            font-size: 1.05rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            border-top: 1px solid #222;
-            padding-top: 1.5rem;
-        }
-
-        .spec-item {
-            color: var(--gold);
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .future-layer {
-            padding: 5rem 10%;
-            background: var(--slate);
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            text-align: center;
-        }
-
-        .future-layer h3 {
-            color: var(--gold);
-            letter-spacing: 4px;
-            margin-bottom: 2rem;
-        }
-
-        .future-layer p {
-            max-width: 900px;
-            margin: 0 auto;
-            color: #999;
-            font-size: 1rem;
-        }
-
-        footer {
-            padding: 3rem 2rem;
-            text-align: center;
-            color: #666;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 768px) {
-            .item,
-            .item:nth-child(even) {
-                flex-direction: column;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .showcase,
-            .story-layer,
-            .future-layer {
-                padding-left: 6%;
-                padding-right: 6%;
-            }
-        }
-    </style>
+@media(max-width:768px){
+.grid,.counter{grid-template-columns:1fr 1fr}
+nav{flex-wrap:wrap}
+.hero{padding-top:4rem}
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="brand-logo">CRAFT SYNC SA</div>
-        <div class="launch-tag">Handcrafted Lifestyle | Pretoria, South Africa</div>
-    </header>
+<nav>
+<div><strong style="color:#c5a028;letter-spacing:3px;">CRAFT SYNC SA</strong></div>
+<div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#store">First Drop</a>
+<a href="#join">Join</a>
+</div>
+</nav>
 
-    <section class="story-layer">
-        <h1>Our Story</h1>
-        <p>
-            Craft Sync SA is currently focused on creating premium handcrafted resin lifestyle pieces,
-            from aura grinders and vessels to symbolic runes and custom accessories.
-            Every item is made with intention, style, and identity. As we grow, future works and
-            new creative product lines will be introduced over time.
-        </p>
-    </section>
+<section class="hero" id="home">
+<h1>UNDER CONSTRUCTION 🚧</h1>
+<p>
+We are preparing the first Craft Sync SA drop featuring handcrafted aura grinders,
+vessels, and weighted runes. Launching 20 April.
+</p>
 
-    <section class="showcase">
+<p class="micro">Handcrafted in South Africa • Small Batch Production • First Drop Launch</p>
 
-        <div class="item">
-            <div class="preview-box">
-                <img src="vessel_black_gold.jpg" alt="Black and Gold Vessel">
-            </div>
-            <div class="details">
-                <h2>Black Gold Vessel</h2>
-                <p>
-                    A handcrafted resin vessel finished in obsidian black with rich gold marbling.
-                    Designed as a premium storage and lifestyle piece with a bold, weighted presence.
-                </p>
-                <div class="specs-grid">
-                    <div class="spec-item">Finish: Obsidian / Gold</div>
-                    <div class="spec-item">Material: Reinforced Resin</div>
-                    <div class="spec-item">Style: Premium Lifestyle</div>
-                    <div class="spec-item">Batch: Handmade</div>
-                </div>
-            </div>
-        </div>
+<div class="counter" id="countdown">
+<div class="box"><strong id="days">0</strong>Days</div>
+<div class="box"><strong id="hours">0</strong>Hours</div>
+<div class="box"><strong id="minutes">0</strong>Minutes</div>
+<div class="box"><strong id="seconds">0</strong>Seconds</div>
+</div>
+</section>
 
-        <div class="item">
-            <div class="preview-box">
-                <img src="grinder_aura.jpg" alt="Aura Grinder">
-            </div>
-            <div class="details">
-                <h2>Aura Grinder</h2>
-                <p>
-                    A custom-crafted grinder built for smooth daily use with a clean transparent body
-                    and signature dual-tone detailing that reflects the Craft Sync identity.
-                </p>
-                <div class="specs-grid">
-                    <div class="spec-item">Body: Crystal Clear</div>
-                    <div class="spec-item">Tone: Black / Gold</div>
-                    <div class="spec-item">Flow: Smooth Grind</div>
-                    <div class="spec-item">Edition: Aura Series</div>
-                </div>
-            </div>
-        </div>
+<section class="section" id="about">
+<h2 style="color:#c5a028;">About Craft Sync SA</h2>
+<p style="color:#aaa;max-width:800px;">
+Craft Sync SA is a South African creative brand where craftsmanship meets innovation.
+Our first collection launching on 20 April introduces handcrafted lifestyle pieces,
+while the broader Sync vision expands into unique custom products and future
+technology-driven creations.
+</p>
+</section>
 
-        <div class="item">
-            <div class="preview-box">
-                <div style="padding:2rem; color:#777;">Weighted Aura Runes</div>
-            </div>
-            <div class="details">
-                <h2>Weighted Aura Runes</h2>
-                <p>
-                    Custom resin runes and symbolic pieces crafted with balanced weight,
-                    rich finishes, and collectible identity. Designed for those who want
-                    something personal and meaningful.
-                </p>
-                <div class="specs-grid">
-                    <div class="spec-item">Core: Weighted Resin</div>
-                    <div class="spec-item">Style: Symbolic</div>
-                    <div class="spec-item">Color: Celestial Indigo</div>
-                    <div class="spec-item">Series: Rune Collection</div>
-                </div>
-            </div>
-        </div>
+<section class="section" id="store">
+<h2 style="color:#c5a028;">First Drop | Available 20 April</h2>
+<div class="grid">
 
-    </section>
+<div class="card">
+<h3>Aura Grinder</h3>
+<p style="color:#aaa;">Smooth daily use with bold black and gold styling.</p>
+<img src="grinder_aura.jpg" style="width:100%;border-radius:12px;margin-top:1rem;" />
+</div>
 
-    <section class="future-layer">
-        <h3>Future Works</h3>
-        <p>
-            Our current collection focuses on handcrafted resin products and lifestyle accessories.
-            Future works including expanded custom collections, modular concepts, and new creative
-            product lines will be implemented as Craft Sync SA continues to grow.
-        </p>
-    </section>
+<div class="card">
+<h3>Black Gold Vessel</h3>
+<p style="color:#aaa;">Premium handcrafted storage vessel.</p>
+<img src="vessel_black_gold.jpg" style="width:100%;border-radius:12px;margin-top:1rem;" />
+</div>
 
-    <footer>
-        © 2026 CRAFT SYNC SA | HANDCRAFTED IN SOUTH AFRICA
-    </footer>
+<div class="card">
+<h3>Weighted Aura Runes</h3>
+<p style="color:#aaa;">Collectible symbolic resin pieces with identity.</p>
+<div style="margin-top:1rem;color:#666;">Preview Coming</div>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="join">
+<div class="signup">
+<h2 style="color:#c5a028;">Get Early Access</h2>
+<p style="color:#aaa;">
+Join the waitlist to be notified when the first drop goes live and secure early access.
+</p>
+<form action="https://formspree.io/f/mqegbwya" method="POST">
+    <input type="email" name="email" placeholder="Enter your email address" required />
+    <button type="submit">🔔 Get Early Access</button>
+</form>
+</div>
+</section>
+
+<footer>
+© 2026 Craft Sync SA | Handcrafted in South Africa
+</footer>
+
+<script>
+const target = new Date('2026-04-20T00:00:00').getTime();
+
+function updateCountdown(){
+  const now = new Date().getTime();
+  const diff = target - now;
+
+  if(diff <= 0){
+    document.getElementById('countdown').innerHTML = "<strong style='color:#c5a028;'>We Are Live 🚀</strong>";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff / (1000*60*60)) % 24);
+  const m = Math.floor((diff / (1000*60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('days').textContent = d;
+  document.getElementById('hours').textContent = h;
+  document.getElementById('minutes').textContent = m;
+  document.getElementById('seconds').textContent = s;
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+</script>
 
 </body>
 </html>
