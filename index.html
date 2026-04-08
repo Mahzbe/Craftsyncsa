@@ -74,12 +74,14 @@ Craft Sync SA blends craftsmanship, creativity, and innovation into custom-made 
 <div class="card">
 <h3>Aura Grinder</h3>
 <p style="color:#aaa;">Premium black and gold handcrafted grinder.</p>
+<img src="grinder_aura.jpg" style="width:100%;border-radius:12px;margin-top:1rem;" alt="Aura Grinder" />
 <div class="price">R70</div>
 <button style="margin-top:1rem;" onclick="document.getElementById('countdown').scrollIntoView({behavior:'smooth'})">Find Out More</button>
 </div>
 <div class="card">
 <h3>Black Gold Vessel</h3>
 <p style="color:#aaa;">Elegant storage vessel with premium finish.</p>
+<img src="vessel_black_gold.jpg" style="width:100%;border-radius:12px;margin-top:1rem;" alt="Black Gold Vessel" />
 <div class="price">R100</div>
 <button style="margin-top:1rem;" onclick="document.getElementById('countdown').scrollIntoView({behavior:'smooth'})">Find Out More</button>
 </div>
@@ -106,13 +108,13 @@ Craft Sync SA blends craftsmanship, creativity, and innovation into custom-made 
 <script>
 const target = new Date('2026-04-21T00:00:00').getTime();
 function updateCountdown(){
- const now = new Date().getTime();
- const diff = target - now;
- if(diff <= 0) return;
- document.getElementById('days').textContent = Math.floor(diff/(1000*60*60*24));
- document.getElementById('hours').textContent = Math.floor((diff/(1000*60*60))%24);
- document.getElementById('minutes').textContent = Math.floor((diff/(1000*60))%60);
- document.getElementById('seconds').textContent = Math.floor((diff/1000)%60);
+ const now = new Date().getTime();
+ const diff = target - now;
+ if(diff <= 0) return;
+ document.getElementById('days').textContent = Math.floor(diff/(1000*60*60*24));
+ document.getElementById('hours').textContent = Math.floor((diff/(1000*60*60))%24);
+ document.getElementById('minutes').textContent = Math.floor((diff/(1000*60))%60);
+ document.getElementById('seconds').textContent = Math.floor((diff/1000)%60);
 }
 setInterval(updateCountdown,1000);
 updateCountdown();
