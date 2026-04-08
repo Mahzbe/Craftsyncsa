@@ -3,153 +3,119 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Craft Sync SA | Launching 20 April</title>
-
+<title>Craft Sync SA | Craft Shop</title>
 <style>
 :root{--bg:#050505;--panel:#121212;--gold:#c5a028;--text:#fff;--muted:#aaa;--line:rgba(197,160,40,.18)}
 *{box-sizing:border-box}
-body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
-
-nav{position:sticky;top:0;background:rgba(5,5,5,.95);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:1rem 6%;border-bottom:1px solid var(--line)}
-nav a{color:var(--muted);text-decoration:none;margin-left:1.2rem;font-size:0.9rem}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+nav{position:sticky;top:0;background:rgba(5,5,5,.95);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:1rem 6%;border-bottom:1px solid var(--line);z-index:10}
+nav a{color:var(--muted);text-decoration:none;margin-left:1.2rem;font-size:0.95rem}
 nav a:hover{color:var(--gold)}
-
 .hero{padding:6rem 6%;text-align:center;background:linear-gradient(to bottom,#080808,#111)}
-.hero h1{font-size:clamp(2rem,6vw,4rem);margin:0;color:var(--gold);letter-spacing:4px}
+.hero h1{font-size:clamp(2.2rem,6vw,4.5rem);margin:0;color:var(--gold);letter-spacing:4px}
 .hero p{max-width:760px;margin:1rem auto;color:var(--muted);font-size:1.1rem}
-
-.micro{font-size:0.8rem;color:#777;margin-top:1rem}
-
-.counter{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:700px;margin:2rem auto}
-.box{background:var(--panel);padding:1.5rem;border:1px solid var(--line);border-radius:20px}
-.box strong{display:block;font-size:2rem;color:var(--gold)}
-
+.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.btn{padding:1rem 1.5rem;border:none;border-radius:14px;background:var(--gold);font-weight:700;cursor:pointer;text-decoration:none;color:#000}
 .section{padding:5rem 6%}
-
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .card{background:var(--panel);padding:2rem;border-radius:22px;border:1px solid var(--line);transition:0.3s}
 .card:hover{transform:translateY(-5px);border-color:var(--gold)}
-
-.signup{max-width:700px;margin:0 auto;text-align:center}
+.price{color:var(--gold);font-weight:700;font-size:1.1rem;margin-top:0.8rem}
 input{width:100%;padding:1rem;border-radius:14px;border:1px solid #333;background:#0d0d0d;color:#fff;margin:1rem 0}
 button{padding:1rem 1.5rem;border:none;border-radius:14px;background:var(--gold);font-weight:700;cursor:pointer}
-
 footer{padding:2rem;text-align:center;color:#777;border-top:1px solid var(--line);font-size:0.8rem}
-
-@media(max-width:768px){
-.grid,.counter{grid-template-columns:1fr 1fr}
-nav{flex-wrap:wrap}
-.hero{padding-top:4rem}
-}
+.brand-box{background:var(--panel);padding:2rem;border:1px solid var(--line);border-radius:22px;max-width:900px}
+@media(max-width:768px){.grid{grid-template-columns:1fr}.hero{padding-top:4rem}nav{flex-wrap:wrap}}
 </style>
 </head>
 <body>
-
 <nav>
 <div><strong style="color:#c5a028;letter-spacing:3px;">CRAFT SYNC SA</strong></div>
 <div>
 <a href="#home">Home</a>
 <a href="#about">About</a>
-<a href="#store">First Drop</a>
+<a href="#shop">Shop</a>
 <a href="#join">Join</a>
 </div>
 </nav>
 
 <section class="hero" id="home">
-<h1>UNDER CONSTRUCTION 🚧</h1>
-<p>
-We are preparing the first Craft Sync SA drop featuring handcrafted aura grinders,
-vessels, and weighted runes. Launching 20 April.
-</p>
-
-<p class="micro">Handcrafted in South Africa • Small Batch Production • First Drop Launch</p>
-
-<div class="counter" id="countdown">
-<div class="box"><strong id="days">0</strong>Days</div>
-<div class="box"><strong id="hours">0</strong>Hours</div>
-<div class="box"><strong id="minutes">0</strong>Minutes</div>
-<div class="box"><strong id="seconds">0</strong>Seconds</div>
+<h1>WELCOME TO THE SHOP</h1>
+<p>Discover handcrafted custom pieces, bold resin creations, keychains, grinders, and future limited drops built in South Africa.</p>
+<div class="cta-row">
+<a class="btn" href="#shop">Shop First Drop</a>
+<a class="btn" href="#join">Get Early Access</a>
 </div>
 </section>
 
 <section class="section" id="about">
 <h2 style="color:#c5a028;">About Craft Sync SA</h2>
+<div class="brand-box">
 <p style="color:#aaa;max-width:800px;">
-Craft Sync SA is a South African creative brand where craftsmanship meets innovation.
-Our first collection launching on 20 April introduces handcrafted lifestyle pieces,
-while the broader Sync vision expands into unique custom products and future
-technology-driven creations.
+Craft Sync SA blends craftsmanship, creativity, and innovation into custom-made lifestyle products. From handcrafted grinders and vessels to keychains and resin art, every piece is built with premium detail and small-batch quality.
 </p>
+</div>
 </section>
 
-<section class="section" id="store">
-<h2 style="color:#c5a028;">First Drop | Available 20 April</h2>
-<div class="grid">
+<section class="section" id="shop">
+<section class="section" id="countdown">
+<h2 style="color:#c5a028;">Launching 21 April</h2>
+<p style="color:#aaa;">All products become available on 21 April. Click any product button to find out more and see the countdown.</p>
+<div class="grid" style="grid-template-columns:repeat(4,1fr);max-width:700px;">
+<div class="card"><div id="days" class="price">0</div><div>Days</div></div>
+<div class="card"><div id="hours" class="price">0</div><div>Hours</div></div>
+<div class="card"><div id="minutes" class="price">0</div><div>Minutes</div></div>
+<div class="card"><div id="seconds" class="price">0</div><div>Seconds</div></div>
+</div>
+</section>
 
+<h2 style="color:#c5a028;">Featured Products</h2>
+<div class="grid">
 <div class="card">
 <h3>Aura Grinder</h3>
-<p style="color:#aaa;">Smooth daily use with bold black and gold styling.</p>
-<img src="grinder_aura.jpg" style="width:100%;border-radius:12px;margin-top:1rem;" />
+<p style="color:#aaa;">Premium black and gold handcrafted grinder.</p>
+<div class="price">R70</div>
+<button style="margin-top:1rem;" onclick="document.getElementById('countdown').scrollIntoView({behavior:'smooth'})">Find Out More</button>
 </div>
-
 <div class="card">
 <h3>Black Gold Vessel</h3>
-<p style="color:#aaa;">Premium handcrafted storage vessel.</p>
-<img src="vessel_black_gold.jpg" style="width:100%;border-radius:12px;margin-top:1rem;" />
+<p style="color:#aaa;">Elegant storage vessel with premium finish.</p>
+<div class="price">R100</div>
+<button style="margin-top:1rem;" onclick="document.getElementById('countdown').scrollIntoView({behavior:'smooth'})">Find Out More</button>
 </div>
-
 <div class="card">
-<h3>Weighted Aura Runes</h3>
-<p style="color:#aaa;">Collectible symbolic resin pieces with identity.</p>
-<div style="margin-top:1rem;color:#666;">Preview Coming</div>
+<h3>Hexagon Storage</h3>
+<p style="color:#aaa;">Personalized handmade keychains in custom colors.</p>
+<img src="Hexagon.jpg" style="width:100%;border-radius:12px;margin-top:1rem;" alt="Hexagon Storage" />
+<div class="price">R90</div>
+<button style="margin-top:1rem;" onclick="document.getElementById('countdown').scrollIntoView({behavior:'smooth'})">Find Out More</button>
 </div>
-
 </div>
 </section>
 
 <section class="section" id="join">
-<div class="signup">
-<h2 style="color:#c5a028;">Get Early Access</h2>
-<p style="color:#aaa;">
-Join the waitlist to be notified when the first drop goes live and secure early access.
-</p>
-<form action="https://formspree.io/f/mqegbwya" method="POST">
-    <input type="email" name="email" placeholder="Enter your email address" required />
-    <button type="submit">🔔 Get Early Access</button>
+<h2 style="color:#c5a028;text-align:center;">Join the Waitlist</h2>
+<p style="color:#aaa;text-align:center;max-width:700px;margin:0 auto;">Be first to know when new drops and custom products go live.</p>
+<form action="https://formspree.io/f/mqegbwya" method="POST" style="max-width:700px;margin:1rem auto;">
+<input type="email" name="email" placeholder="Enter your email address" required />
+<button type="submit">🔔 Notify Me</button>
 </form>
-</div>
 </section>
 
-<footer>
-© 2026 Craft Sync SA | Handcrafted in South Africa
-</footer>
-
+<footer>© 2026 Craft Sync SA | Crafted in South Africa</footer>
 <script>
-const target = new Date('2026-04-20T00:00:00').getTime();
-
+const target = new Date('2026-04-21T00:00:00').getTime();
 function updateCountdown(){
-  const now = new Date().getTime();
-  const diff = target - now;
-
-  if(diff <= 0){
-    document.getElementById('countdown').innerHTML = "<strong style='color:#c5a028;'>We Are Live 🚀</strong>";
-    return;
-  }
-
-  const d = Math.floor(diff / (1000*60*60*24));
-  const h = Math.floor((diff / (1000*60*60)) % 24);
-  const m = Math.floor((diff / (1000*60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  document.getElementById('days').textContent = d;
-  document.getElementById('hours').textContent = h;
-  document.getElementById('minutes').textContent = m;
-  document.getElementById('seconds').textContent = s;
+ const now = new Date().getTime();
+ const diff = target - now;
+ if(diff <= 0) return;
+ document.getElementById('days').textContent = Math.floor(diff/(1000*60*60*24));
+ document.getElementById('hours').textContent = Math.floor((diff/(1000*60*60))%24);
+ document.getElementById('minutes').textContent = Math.floor((diff/(1000*60))%60);
+ document.getElementById('seconds').textContent = Math.floor((diff/1000)%60);
 }
-
 setInterval(updateCountdown,1000);
 updateCountdown();
 </script>
-
 </body>
 </html>
