@@ -66,7 +66,6 @@ max-width:700px;
 margin:1rem auto;
 }
 
-/* STATUS */
 .status{
 background:rgba(197,160,40,.08);
 border:1px solid var(--line);
@@ -78,16 +77,23 @@ color:var(--gold);
 font-weight:600;
 }
 
-/* BUTTON */
-button{
-width:100%;
-padding:0.9rem;
-border:none;
-border-radius:12px;
+/* FACEBOOK BUTTON */
+.fb-btn{
+display:inline-block;
+margin-top:1.5rem;
+padding:1rem 1.5rem;
+border-radius:14px;
 background:var(--gold);
+color:#000;
 font-weight:700;
-cursor:pointer;
-margin-top:1rem;
+text-decoration:none;
+transition:0.3s;
+box-shadow:0 0 15px rgba(197,160,40,0.4);
+}
+
+.fb-btn:hover{
+transform:translateY(-3px) scale(1.03);
+box-shadow:0 0 25px rgba(197,160,40,0.7);
 }
 
 /* GRID */
@@ -126,6 +132,18 @@ font-weight:700;
 margin-top:0.6rem;
 }
 
+/* BUTTON */
+button{
+width:100%;
+padding:0.9rem;
+border:none;
+border-radius:12px;
+background:var(--gold);
+font-weight:700;
+cursor:pointer;
+margin-top:1rem;
+}
+
 /* INPUT */
 input, textarea{
 width:100%;
@@ -135,15 +153,6 @@ border:1px solid #333;
 background:#0d0d0d;
 color:#fff;
 margin:0.6rem 0;
-}
-
-/* FOOTER */
-footer{
-padding:2rem;
-text-align:center;
-color:#777;
-border-top:1px solid var(--line);
-font-size:0.8rem;
 }
 
 /* VIDEO INTRO */
@@ -176,10 +185,9 @@ color:var(--gold);
 padding:0.6rem 1rem;
 border-radius:10px;
 cursor:pointer;
-font-size:0.85rem;
 }
 
-/* POPUP FORM */
+/* POPUP */
 #popupForm{
 position:fixed;
 top:0;
@@ -206,14 +214,21 @@ max-width:420px;
 float:right;
 cursor:pointer;
 color:var(--gold);
-font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+padding:2rem;
+text-align:center;
+color:#777;
+border-top:1px solid var(--line);
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO INTRO -->
+<!-- VIDEO -->
 <div id="introVideo">
   <video id="introVid" autoplay playsinline>
     <source src="ad1.mp4" type="video/mp4">
@@ -221,29 +236,29 @@ font-weight:bold;
   <div id="skipBtn">Skip Ad</div>
 </div>
 
-<!-- POPUP FORM WITH PRICE ESTIMATE -->
+<!-- POPUP FORM -->
 <div id="popupForm">
-  <div class="form-box">
-    <span class="close-btn" onclick="closeForm()">✕</span>
-    <h3 style="color:#c5a028;">Request Pavement Quote</h3>
+<div class="form-box">
+<span class="close-btn" onclick="closeForm()">✕</span>
 
-    <p style="color:#aaa;">Estimated Price:</p>
-    <h2 id="estimate" style="color:#c5a028;">R0</h2>
+<h3 style="color:#c5a028;">Request Pavement Quote</h3>
 
-    <form action="https://formspree.io/f/mqegbwya" method="POST">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="text" name="phone" placeholder="Phone / WhatsApp Number" required>
+<p>Estimated Price:</p>
+<h2 id="estimate" style="color:#c5a028;">R0</h2>
 
-      <input type="number" id="area" placeholder="Enter area (m²)" required>
+<form action="https://formspree.io/f/mqegbwya" method="POST">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="text" name="phone" placeholder="Phone / WhatsApp" required>
 
-      <textarea name="message" placeholder="Project details / quantity needed"></textarea>
+<input type="number" id="area" placeholder="Area (m²)" required>
 
-      <input type="hidden" name="estimate" id="hiddenEstimate">
+<textarea name="message"></textarea>
+<input type="hidden" id="hiddenEstimate" name="estimate">
 
-      <button type="submit">Send Request</button>
-    </form>
-  </div>
+<button type="submit">Send Request</button>
+</form>
+</div>
 </div>
 
 <nav>
@@ -257,69 +272,85 @@ font-weight:bold;
 
 <section class="hero" id="home">
 <h1>CRAFT SYNC MARKET</h1>
-<p>Custom products, resin crafts, storage solutions and industrial materials — all in one place.</p>
+<p>Custom products, resin crafts, storage solutions and industrial materials.</p>
 
-<div class="status">⚠️ UNDER CONSTRUCTION — STRESS TEST PHASE</div>
+<div class="status">⚠️ UNDER CONSTRUCTION</div>
+
+<br>
+<a href="https://www.facebook.com/profile.php?id=100076258981389" target="_blank" class="fb-btn">
+Follow Us on Facebook
+</a>
 </section>
 
 <section class="section" id="shop">
 <h2 style="color:#c5a028;">Featured Products</h2>
 
 <div class="grid">
+
+<div class="card">
+<h3>Aura Grinder</h3>
+<img src="grinder_aura.jpg">
+<div class="price">R70</div>
+<button>View Product</button>
+</div>
+
+<div class="card">
+<h3>Black Gold Vessel</h3>
+<img src="vessel_black_gold.jpg">
+<div class="price">R100</div>
+<button>View Product</button>
+</div>
+
+<div class="card">
+<h3>Hexagon Storage</h3>
+<img src="Hexagon.jpg">
+<div class="price">R90</div>
+<button>View Product</button>
+</div>
+
 <div class="card">
 <h3>Zigzag Pavement Blocks</h3>
-<p style="color:#aaa;">Durable interlocking blocks for outdoor surfaces.</p>
-<img src="pavement.jpg" />
+<img src="pavement.jpg">
 <div class="price">Bulk Pricing</div>
-
 <button onclick="openForm()">Request Quote</button>
 </div>
+
 </div>
+</section>
+
+<section class="section" id="join">
+<h2 style="color:#c5a028;text-align:center;">Join Early Access</h2>
+<form action="https://formspree.io/f/mqegbwya" method="POST" style="max-width:600px;margin:auto;">
+<input type="email" name="email" placeholder="Enter your email" required>
+<button type="submit">Notify Me</button>
+</form>
 </section>
 
 <footer>
 © 2026 Craft Sync SA | Built in South Africa<br>
-Contact: <a href="mailto:admin@craftsyncsa.xyz" style="color:#c5a028;">admin@craftsyncsa.xyz</a>
+admin@craftsyncsa.xyz
 </footer>
 
 <script>
-// VIDEO CONTROL
 const intro = document.getElementById("introVideo");
-const skip = document.getElementById("skipBtn");
+document.getElementById("skipBtn").onclick = () => intro.style.display="none";
+setTimeout(()=>intro.style.display="none",8000);
 
-skip.onclick = () => intro.style.display = "none";
+function openForm(){document.getElementById("popupForm").style.display="flex";}
+function closeForm(){document.getElementById("popupForm").style.display="none";}
 
-setTimeout(()=>{
-intro.style.display="none";
-},8000);
+document.body.addEventListener("click",()=>document.getElementById("introVid").muted=false);
 
-// FORM CONTROL
-function openForm(){
-document.getElementById("popupForm").style.display="flex";
-}
+// PRICE
+const pricePerSquare=120;
+const area=document.getElementById("area");
+const est=document.getElementById("estimate");
+const hidden=document.getElementById("hiddenEstimate");
 
-function closeForm(){
-document.getElementById("popupForm").style.display="none";
-}
-
-// SOUND UNLOCK
-document.body.addEventListener("click", () => {
-document.getElementById("introVid").muted = false;
-});
-
-// PRICE ESTIMATOR
-const pricePerSquare = 120;
-
-const areaInput = document.getElementById("area");
-const estimateText = document.getElementById("estimate");
-const hiddenEstimate = document.getElementById("hiddenEstimate");
-
-areaInput.addEventListener("input", () => {
-    const area = parseFloat(areaInput.value) || 0;
-    const total = area * pricePerSquare;
-
-    estimateText.innerText = "R" + total.toLocaleString();
-    hiddenEstimate.value = "Estimated Price: R" + total;
+area.addEventListener("input",()=>{
+let total=(parseFloat(area.value)||0)*pricePerSquare;
+est.innerText="R"+total.toLocaleString();
+hidden.value="R"+total;
 });
 </script>
 
