@@ -66,7 +66,7 @@ max-width:700px;
 margin:1rem auto;
 }
 
-/* STATUS BANNER */
+/* STATUS */
 .status{
 background:rgba(197,160,40,.08);
 border:1px solid var(--line);
@@ -76,6 +76,25 @@ margin-top:2rem;
 display:inline-block;
 color:var(--gold);
 font-weight:600;
+}
+
+/* FACEBOOK BUTTON */
+.fb-btn{
+display:inline-block;
+margin-top:1.5rem;
+padding:1rem 1.5rem;
+border-radius:14px;
+background:var(--gold);
+color:#000;
+font-weight:700;
+text-decoration:none;
+transition:0.3s;
+box-shadow:0 0 15px rgba(197,160,40,0.4);
+}
+
+.fb-btn:hover{
+transform:translateY(-3px) scale(1.03);
+box-shadow:0 0 25px rgba(197,160,40,0.7);
 }
 
 /* SECTION */
@@ -99,7 +118,7 @@ position:relative;
 overflow:hidden;
 }
 
-/* 🔥 HOVER GLOW */
+/* HOVER GLOW */
 .card::before{
 content:"";
 position:absolute;
@@ -187,6 +206,13 @@ font-size:0.8rem;
 <div class="status">
 ⚠️ UNDER CONSTRUCTION — STRESS TEST PHASE
 </div>
+
+<!-- FACEBOOK BUTTON -->
+<br>
+<a href="https://www.facebook.com/profile.php?id=100076258981389" target="_blank" class="fb-btn">
+Follow Us on Facebook
+</a>
+
 </section>
 
 <section class="section" id="shop">
@@ -224,7 +250,10 @@ font-size:0.8rem;
 <p style="color:#aaa;">Durable interlocking zigzag pavement pellets for outdoor surfaces.</p>
 <img src="pavement.jpg" />
 <div class="price">Bulk Pricing</div>
-<button>Request Quote</button>
+
+<!-- LINKED BUTTON -->
+<button onclick="window.location.href='paveinc.html'">Request Quote</button>
+
 </div>
 
 </div>
