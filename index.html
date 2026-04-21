@@ -78,82 +78,6 @@ color:var(--gold);
 font-weight:600;
 }
 
-/* FACEBOOK BUTTON */
-.fb-btn{
-display:inline-block;
-margin-top:1.5rem;
-padding:1rem 1.5rem;
-border-radius:14px;
-background:var(--gold);
-color:#000;
-font-weight:700;
-text-decoration:none;
-transition:0.3s;
-box-shadow:0 0 15px rgba(197,160,40,0.4);
-}
-
-.fb-btn:hover{
-transform:translateY(-3px) scale(1.03);
-box-shadow:0 0 25px rgba(197,160,40,0.7);
-}
-
-/* SECTION */
-.section{padding:4rem 6%}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:1.5rem;
-}
-
-/* CARD */
-.card{
-background:var(--panel);
-padding:1.5rem;
-border-radius:20px;
-border:1px solid var(--line);
-transition:0.35s;
-position:relative;
-overflow:hidden;
-}
-
-/* HOVER GLOW */
-.card::before{
-content:"";
-position:absolute;
-top:-50%;
-left:-50%;
-width:200%;
-height:200%;
-background:radial-gradient(circle, rgba(197,160,40,0.15), transparent 60%);
-opacity:0;
-transition:0.4s;
-}
-
-.card:hover::before{
-opacity:1;
-}
-
-.card:hover{
-transform:translateY(-6px) scale(1.02);
-border-color:var(--gold);
-box-shadow:0 0 25px rgba(197,160,40,0.2);
-}
-
-/* PRODUCT */
-.card img{
-width:100%;
-border-radius:12px;
-margin-top:1rem;
-}
-
-.price{
-color:var(--gold);
-font-weight:700;
-margin-top:0.6rem;
-}
-
 /* BUTTON */
 button{
 width:100%;
@@ -166,15 +90,51 @@ cursor:pointer;
 margin-top:1rem;
 }
 
+/* GRID */
+.section{padding:4rem 6%}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:1.5rem;
+}
+
+.card{
+background:var(--panel);
+padding:1.5rem;
+border-radius:20px;
+border:1px solid var(--line);
+transition:0.35s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-6px) scale(1.02);
+border-color:var(--gold);
+box-shadow:0 0 25px rgba(197,160,40,0.2);
+}
+
+.card img{
+width:100%;
+border-radius:12px;
+margin-top:1rem;
+}
+
+.price{
+color:var(--gold);
+font-weight:700;
+margin-top:0.6rem;
+}
+
 /* INPUT */
-input{
+input, textarea{
 width:100%;
 padding:1rem;
 border-radius:12px;
 border:1px solid #333;
 background:#0d0d0d;
 color:#fff;
-margin:1rem 0;
+margin:0.6rem 0;
 }
 
 /* FOOTER */
@@ -185,10 +145,106 @@ color:#777;
 border-top:1px solid var(--line);
 font-size:0.8rem;
 }
+
+/* VIDEO INTRO */
+#introVideo{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+z-index:9999;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+#introVideo video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+#skipBtn{
+position:absolute;
+top:20px;
+right:20px;
+background:rgba(0,0,0,0.6);
+border:1px solid var(--gold);
+color:var(--gold);
+padding:0.6rem 1rem;
+border-radius:10px;
+cursor:pointer;
+font-size:0.85rem;
+}
+
+/* POPUP FORM */
+#popupForm{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9998;
+}
+
+.form-box{
+background:#111;
+padding:2rem;
+border-radius:18px;
+border:1px solid var(--line);
+width:90%;
+max-width:420px;
+}
+
+.close-btn{
+float:right;
+cursor:pointer;
+color:var(--gold);
+font-weight:bold;
+}
 </style>
 </head>
 
 <body>
+
+<!-- VIDEO INTRO -->
+<div id="introVideo">
+  <video id="introVid" autoplay playsinline>
+    <source src="ad1.mp4" type="video/mp4">
+  </video>
+  <div id="skipBtn">Skip Ad</div>
+</div>
+
+<!-- POPUP FORM WITH PRICE ESTIMATE -->
+<div id="popupForm">
+  <div class="form-box">
+    <span class="close-btn" onclick="closeForm()">✕</span>
+    <h3 style="color:#c5a028;">Request Pavement Quote</h3>
+
+    <p style="color:#aaa;">Estimated Price:</p>
+    <h2 id="estimate" style="color:#c5a028;">R0</h2>
+
+    <form action="https://formspree.io/f/mqegbwya" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="phone" placeholder="Phone / WhatsApp Number" required>
+
+      <input type="number" id="area" placeholder="Enter area (m²)" required>
+
+      <textarea name="message" placeholder="Project details / quantity needed"></textarea>
+
+      <input type="hidden" name="estimate" id="hiddenEstimate">
+
+      <button type="submit">Send Request</button>
+    </form>
+  </div>
+</div>
 
 <nav>
 <div><strong style="color:#c5a028;">CRAFT SYNC SA</strong></div>
@@ -203,76 +259,69 @@ font-size:0.8rem;
 <h1>CRAFT SYNC MARKET</h1>
 <p>Custom products, resin crafts, storage solutions and industrial materials — all in one place.</p>
 
-<div class="status">
-⚠️ UNDER CONSTRUCTION — STRESS TEST PHASE
-</div>
-
-<!-- FACEBOOK BUTTON -->
-<br>
-<a href="https://www.facebook.com/profile.php?id=100076258981389" target="_blank" class="fb-btn">
-Follow Us on Facebook
-</a>
-
+<div class="status">⚠️ UNDER CONSTRUCTION — STRESS TEST PHASE</div>
 </section>
 
 <section class="section" id="shop">
-
 <h2 style="color:#c5a028;">Featured Products</h2>
 
 <div class="grid">
-
-<div class="card">
-<h3>Aura Grinder</h3>
-<p style="color:#aaa;">Premium black & gold handcrafted grinder.</p>
-<img src="grinder_aura.jpg" />
-<div class="price">R70</div>
-<button>View Product</button>
-</div>
-
-<div class="card">
-<h3>Black Gold Vessel</h3>
-<p style="color:#aaa;">Elegant storage with premium finish.</p>
-<img src="vessel_black_gold.jpg" />
-<div class="price">R100</div>
-<button>View Product</button>
-</div>
-
-<div class="card">
-<h3>Hexagon Storage</h3>
-<p style="color:#aaa;">Modern hexagon storage container.</p>
-<img src="Hexagon.jpg" />
-<div class="price">R90</div>
-<button>View Product</button>
-</div>
-
 <div class="card">
 <h3>Zigzag Pavement Blocks</h3>
-<p style="color:#aaa;">Durable interlocking zigzag pavement pellets for outdoor surfaces.</p>
+<p style="color:#aaa;">Durable interlocking blocks for outdoor surfaces.</p>
 <img src="pavement.jpg" />
 <div class="price">Bulk Pricing</div>
 
-<!-- LINKED BUTTON -->
-<button onclick="window.location.href='paveinc.html'">Request Quote</button>
-
+<button onclick="openForm()">Request Quote</button>
 </div>
-
 </div>
-</section>
-
-<section class="section" id="join">
-<h2 style="color:#c5a028;text-align:center;">Join Early Access</h2>
-<p style="color:#aaa;text-align:center;">Be notified when full marketplace features go live.</p>
-
-<form action="https://formspree.io/f/mqegbwya" method="POST" style="max-width:600px;margin:1rem auto;">
-<input type="email" name="email" placeholder="Enter your email" required />
-<button type="submit">Notify Me</button>
-</form>
 </section>
 
 <footer>
 © 2026 Craft Sync SA | Built in South Africa<br>
-Contact: <a href="mailto:admin@craftsyncsa.xyz" style="color:var(--gold);text-decoration:none;">admin@craftsyncsa.xyz</a>
+Contact: <a href="mailto:admin@craftsyncsa.xyz" style="color:#c5a028;">admin@craftsyncsa.xyz</a>
 </footer>
+
+<script>
+// VIDEO CONTROL
+const intro = document.getElementById("introVideo");
+const skip = document.getElementById("skipBtn");
+
+skip.onclick = () => intro.style.display = "none";
+
+setTimeout(()=>{
+intro.style.display="none";
+},8000);
+
+// FORM CONTROL
+function openForm(){
+document.getElementById("popupForm").style.display="flex";
+}
+
+function closeForm(){
+document.getElementById("popupForm").style.display="none";
+}
+
+// SOUND UNLOCK
+document.body.addEventListener("click", () => {
+document.getElementById("introVid").muted = false;
+});
+
+// PRICE ESTIMATOR
+const pricePerSquare = 120;
+
+const areaInput = document.getElementById("area");
+const estimateText = document.getElementById("estimate");
+const hiddenEstimate = document.getElementById("hiddenEstimate");
+
+areaInput.addEventListener("input", () => {
+    const area = parseFloat(areaInput.value) || 0;
+    const total = area * pricePerSquare;
+
+    estimateText.innerText = "R" + total.toLocaleString();
+    hiddenEstimate.value = "Estimated Price: R" + total;
+});
+</script>
 
 </body>
 </html>
