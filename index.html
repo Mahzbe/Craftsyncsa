@@ -24,7 +24,6 @@ background:var(--bg);
 color:var(--text);
 }
 
-/* NAV */
 nav{
 position:sticky;
 top:0;
@@ -46,7 +45,6 @@ font-size:0.95rem;
 
 nav a:hover{color:var(--gold)}
 
-/* HERO */
 .hero{
 padding:5rem 6%;
 text-align:center;
@@ -77,7 +75,6 @@ color:var(--gold);
 font-weight:600;
 }
 
-/* FACEBOOK BUTTON */
 .fb-btn{
 display:inline-block;
 margin-top:1.5rem;
@@ -96,8 +93,8 @@ transform:translateY(-3px) scale(1.03);
 box-shadow:0 0 25px rgba(197,160,40,0.7);
 }
 
-/* GRID */
 .section{padding:4rem 6%}
+
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -132,7 +129,6 @@ font-weight:700;
 margin-top:0.6rem;
 }
 
-/* BUTTON */
 button{
 width:100%;
 padding:0.9rem;
@@ -144,7 +140,6 @@ cursor:pointer;
 margin-top:1rem;
 }
 
-/* INPUT */
 input, textarea{
 width:100%;
 padding:1rem;
@@ -153,38 +148,6 @@ border:1px solid #333;
 background:#0d0d0d;
 color:#fff;
 margin:0.6rem 0;
-}
-
-/* VIDEO INTRO */
-#introVideo{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#000;
-z-index:9999;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-#introVideo video{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-#skipBtn{
-position:absolute;
-top:20px;
-right:20px;
-background:rgba(0,0,0,0.6);
-border:1px solid var(--gold);
-color:var(--gold);
-padding:0.6rem 1rem;
-border-radius:10px;
-cursor:pointer;
 }
 
 /* POPUP */
@@ -216,50 +179,30 @@ cursor:pointer;
 color:var(--gold);
 }
 
-/* FOOTER */
 footer{
 padding:2rem;
 text-align:center;
 color:#777;
 border-top:1px solid var(--line);
 }
+
+/* HERO VIDEO */
+.hero-video{
+margin-top:2rem;
+max-width:800px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.hero-video video{
+width:100%;
+border-radius:16px;
+border:1px solid rgba(197,160,40,.25);
+}
 </style>
 </head>
 
 <body>
-
-<!-- VIDEO -->
-<div id="introVideo">
-  <video id="introVid" autoplay playsinline>
-    <source src="ad1.mp4" type="video/mp4">
-  </video>
-  <div id="skipBtn">Skip Ad</div>
-</div>
-
-<!-- POPUP FORM -->
-<div id="popupForm">
-<div class="form-box">
-<span class="close-btn" onclick="closeForm()">✕</span>
-
-<h3 style="color:#c5a028;">Request Pavement Quote</h3>
-
-<p>Estimated Price:</p>
-<h2 id="estimate" style="color:#c5a028;">R0</h2>
-
-<form action="https://formspree.io/f/mqegbwya" method="POST">
-<input type="text" name="name" placeholder="Full Name" required>
-<input type="email" name="email" placeholder="Email" required>
-<input type="text" name="phone" placeholder="Phone / WhatsApp" required>
-
-<input type="number" id="area" placeholder="Area (m²)" required>
-
-<textarea name="message"></textarea>
-<input type="hidden" id="hiddenEstimate" name="estimate">
-
-<button type="submit">Send Request</button>
-</form>
-</div>
-</div>
 
 <nav>
 <div><strong style="color:#c5a028;">CRAFT SYNC SA</strong></div>
@@ -274,7 +217,14 @@ border-top:1px solid var(--line);
 <h1>CRAFT SYNC MARKET</h1>
 <p>Custom products, resin crafts, storage solutions and industrial materials.</p>
 
-<div class="status">⚠️ UNDER CONSTRUCTION</div>
+<!-- VIDEO AD -->
+<div class="hero-video">
+<video id="heroAd" autoplay muted playsinline>
+<source src="ad1.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="status">⚠️ UNDER CONSTRUCTION — STRESS TEST PHASE</div>
 
 <br>
 <a href="https://www.facebook.com/profile.php?id=100076258981389" target="_blank" class="fb-btn">
@@ -331,17 +281,37 @@ Follow Us on Facebook
 admin@craftsyncsa.xyz
 </footer>
 
-<script>
-const intro = document.getElementById("introVideo");
-document.getElementById("skipBtn").onclick = () => intro.style.display="none";
-setTimeout(()=>intro.style.display="none",8000);
+<!-- POPUP -->
+<div id="popupForm">
+<div class="form-box">
+<span class="close-btn" onclick="closeForm()">✕</span>
 
+<h3 style="color:#c5a028;">Request Pavement Quote</h3>
+
+<p>Estimated Price:</p>
+<h2 id="estimate" style="color:#c5a028;">R0</h2>
+
+<form action="https://formspree.io/f/mqegbwya" method="POST">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="text" name="phone" placeholder="Phone / WhatsApp" required>
+
+<input type="number" id="area" placeholder="Area (m²)" required>
+
+<textarea name="message"></textarea>
+<input type="hidden" id="hiddenEstimate" name="estimate">
+
+<button type="submit">Send Request</button>
+</form>
+</div>
+</div>
+
+<script>
+/* FORM */
 function openForm(){document.getElementById("popupForm").style.display="flex";}
 function closeForm(){document.getElementById("popupForm").style.display="none";}
 
-document.body.addEventListener("click",()=>document.getElementById("introVid").muted=false);
-
-// PRICE
+/* PRICE */
 const pricePerSquare=120;
 const area=document.getElementById("area");
 const est=document.getElementById("estimate");
@@ -351,6 +321,37 @@ area.addEventListener("input",()=>{
 let total=(parseFloat(area.value)||0)*pricePerSquare;
 est.innerText="R"+total.toLocaleString();
 hidden.value="R"+total;
+});
+
+/* VIDEO CONTROL (2 plays / 24h reset) */
+const video=document.getElementById("heroAd");
+
+const now=Date.now();
+const DAY=86400000;
+
+let last=localStorage.getItem("ad_last");
+let count=parseInt(localStorage.getItem("ad_count")||"0");
+
+if(!last || now-last>DAY){
+localStorage.setItem("ad_last",now);
+localStorage.setItem("ad_count","0");
+count=0;
+}
+
+function playTwice(){
+if(count<2){
+video.currentTime=0;
+video.play();
+count++;
+localStorage.setItem("ad_count",count);
+}
+}
+
+window.addEventListener("load",()=>setTimeout(playTwice,500));
+
+/* unlock sound */
+document.body.addEventListener("click",()=>{
+video.muted=false;
 });
 </script>
 
